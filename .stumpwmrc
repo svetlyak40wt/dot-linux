@@ -1,0 +1,17 @@
+;; -*- Lisp -*-
+
+(in-package :stumpwm)
+
+
+(ql:quickload :slynk)
+(slynk:create-server :port 4005
+                     :dont-close t)
+
+(let ((configs-dir #P "~/.config/stumpwm/"))
+  (when (probe-file configs-dir)
+    (loop for filename in (directory (uiop:wilden configs-dir))
+          do (handler-case (load filename)
+               (serious-condition (e)
+                 (message "Unable to load ~A"
+                          filename))))))
+
