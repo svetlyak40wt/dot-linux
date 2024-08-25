@@ -2,7 +2,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keyboard settings ;;
-;;;;;;;;;;;;;;;;;;;;;;; 
+;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Default prefix C-t breaks a few important and frequent shortcuts:
+;; - C-c C-t (in Emacs org-mode it switches state of the todo item).
+;; - C-t (in the browser it opens a new tab).
+(set-prefix-key (stumpwm:kbd "C-o"))
+
 
 (load-module "kbd-layouts")
 ;; To make s-SPC shortcut work on Macbook, you also need to
