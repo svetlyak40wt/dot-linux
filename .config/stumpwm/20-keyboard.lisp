@@ -37,3 +37,11 @@
                  "libinput Natural Scrolling Enabled"
                  "1"))
 
+;; Устанавливаем скорость повтора клавиш, чтобы курсор мотать побыстрее:
+(run-prog "/usr/bin/xset"
+          :args (list
+                 "r"
+                 "rate"
+                 "300"
+                 "30"))
+
